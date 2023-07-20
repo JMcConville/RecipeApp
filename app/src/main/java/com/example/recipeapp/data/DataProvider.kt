@@ -21,7 +21,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item2,
         ),
         Recipe(
             3,
@@ -29,7 +29,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item3,
         ),
         Recipe(
             4,
@@ -37,7 +37,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item2,
         ),
         Recipe(
             5,
@@ -53,7 +53,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item3,
         ),
         Recipe(
             7,
@@ -69,7 +69,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item2,
         ),
         Recipe(
             9,
@@ -77,7 +77,7 @@ object DataProvider {
             "Description of the recipe will go here",
             "Method will go here",
             "Nutrional information will be displayed here",
-            R.drawable.fooditem,
+            R.drawable.food_item3,
         ),
         Recipe(
             10,

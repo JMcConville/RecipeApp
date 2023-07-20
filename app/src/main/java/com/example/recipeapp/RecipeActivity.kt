@@ -1,35 +1,44 @@
 package com.example.recipeapp
 
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import com.example.recipeapp.data.Recipe
-import com.example.recipeapp.ui.theme.RecipeAppTheme
+import com.example.recipeapp.ui.theme.RecipeTheme
 
 // This page is the 'new' activity page, this is what the user will see after clicking on a list item.
 
@@ -42,10 +51,11 @@ private val recipe : Recipe by lazy{
 
 
 class RecipeActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            RecipeAppTheme {
+            RecipeTheme {
                 Column(modifier = Modifier.fillMaxSize()) {
                     BoxWithConstraints {
                         Surface {
@@ -53,7 +63,8 @@ class RecipeActivity : ComponentActivity() {
                                 modifier = Modifier
                                     .fillMaxSize(),
                             ) {
-                                    RecipeHeader(500.dp)
+                                    RecPageTopBar()
+                                    RecipeHeader(600.dp)
                                     RecipeName(2.dp)
                                     RecipeMethod(20.dp)
                                     RecipeNutrition(20.dp)
@@ -67,6 +78,7 @@ class RecipeActivity : ComponentActivity() {
 
                 }
             }
+
         }
     }
 // Part 2 of issue getSerializableExtra Deprecated//
@@ -79,9 +91,31 @@ class RecipeActivity : ComponentActivity() {
 }
 */
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun RecPageTopBar() {
+    TopAppBar(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.primary)
+            .padding(10.dp),
+        title = {
+            Text(text = "ReciPie", style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onPrimary)
+        },
+        /*navigationIcon = {
+            Icon(
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "Back",
+                color = MaterialTheme.colorScheme.onPrimary
+            )
+        },*/
+        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+    )
+}
+
 //Below this comment are functions that can be called into the field above
 
-    @Composable
+
+@Composable
     private fun RecipeHeader(containerHeight: Dp) {
         Image(
             modifier = Modifier
@@ -102,9 +136,11 @@ class RecipeActivity : ComponentActivity() {
             Spacer(modifier = Modifier.height(12.dp))
             Text(text = "Recipe Name", style = MaterialTheme.typography.titleLarge)
             Column(
+                horizontalAlignment = Alignment.End,
                 modifier = Modifier
+                    .fillMaxWidth()
                     .verticalScroll(rememberScrollState())
-                    .padding(start = 65.dp, top = 10.dp)
+                    .padding(top = 10.dp)
             ) {
                 Text(text = "10 minutes", style = MaterialTheme.typography.bodyMedium)
             }
@@ -140,4 +176,5 @@ class RecipeActivity : ComponentActivity() {
             )
         }
     }
+
 

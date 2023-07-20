@@ -28,7 +28,7 @@ import com.example.recipeapp.data.Recipe
 @Composable
 fun RecipeListItem(recipe: Recipe, navigateToProfile: (Recipe)->Unit) {
     Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
         modifier = Modifier
             .padding(horizontal = 5.dp, vertical = 8.dp)
             .fillMaxWidth(),
