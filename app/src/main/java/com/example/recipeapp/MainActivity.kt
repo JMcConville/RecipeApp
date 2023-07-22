@@ -25,6 +25,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.recipeapp.ui.theme.RecipeTheme
 
+/* Tutorials used throughout app development :
+- https://medium.com/@mal7othify/lists-using-lazycolumn-in-jetpack-compose-c70c39805fbc
+- https://www.waseefakhtar.com/android/recyclerview-in-jetpack-compose/
+- https://www.youtube.com/watch?v=6_wK_Ud8--0&t=1097s
+- https://www.youtube.com/watch?v=rHKeRWK3zL4
+*/
+
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
